@@ -1,0 +1,307 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.row{
+    
+    gap: 5px;
+    margin-bottom: 50px;
+}
+.dashboard {
+    display: flex;
+    width: 100%;
+    height: 90.2vh;
+    margin-top: -3vh;
+    
+}
+/*Menus*/
+.dashMenu {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+}
+
+.dashMenu img {
+    width: 50px;
+    margin-right: 15px;
+}
+
+.sideMenu {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.sideMenu h1 {
+    font-size: 18px;
+    color: #007bff;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sideMenu h1:hover {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+/*End of the 2 Menus*/
+/*The Part where the stuff changes*/
+.main {
+    margin-left: 250px;
+    padding: 20px;
+    flex-grow: 1;
+    margin-top: 100px;
+}
+
+.mainTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+/*Dashboard inside the Main Div*/
+.elementTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.tableWrapper {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+/*Pages inside Main Div*/
+.main:first-child(){
+    margin-bottom: 100px;
+}
+
+
+.homeBanner, 
+.homeAbout, 
+.homeServices,
+.aboutAbout,
+.aboutBanner,
+.servicesBanner ,
+.servicesGalery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds spacing between input fields */
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space between each homeBanner block */
+    max-width: 800px; /* Adjust width */
+    margin: auto;
+  }
+  
+  .homeBanner input, 
+  .homeAbout input, 
+  .homeServices input,
+  .aboutAbout input,
+  .aboutBanner input,
+  .servicesBanner input,
+  .servicesGalery input{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .homeBanner input:focus, 
+  .homeAbout input:focus, 
+  .homeServices input:focus ,
+  .aboutAbout input:focus,
+  .aboutBanner input:focus,
+  .servicesBanner input:focus,
+  .servicesGalery input:focus{
+    border-color: #007bff;
+    outline: none;
+  }
+  
+/*Feedback inside Main Div*/
+
+  .feedback {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card h1 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+
+.feedback h2 {
+    font-size: 16px;
+    color: #555;
+}
+
+.card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.noFeedback {
+    font-size: 18px;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.postsGalery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card h1 {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+#addButton {
+    height: 50px;
+    align-self: self-end;
+}
+
+/*Styles Span*/
+.stylesSpan {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    width: 600px; /* Increased width for a wider layout */
+    margin: 50px auto; /* Centers it horizontally */
+    text-align: center;
+  }
+  
+  .stylesSpan h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .stylesSpan div {
+    display: flex;
+    justify-content: space-between; /* Spreads the text and input */
+    align-items: center;
+    width: 100%; /* Ensures the div stretches */
+  }
+  
+  .stylesSpan h3 {
+    font-size: 18px;
+    margin: 0;
+    flex: 1; /* Makes sure text doesn't shrink */
+    text-align: left; /* Aligns labels to the left */
+  }
+  
+  .stylesSpan input {
+    flex: 2; /* Makes inputs take more space */
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .stylesSpan input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  }
+  
