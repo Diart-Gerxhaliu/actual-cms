@@ -1,20 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ServicesTemplate.css";
-import ServiceData from "../../json/Service/ServiceData.json";
+import ServiceDataJson from "../../json/Service/ServiceData.json";
+import ServiceBannerJson from "../../json/Service/Banner.json";
+
 import Banner from "../organisms/Banner";
 import bannerImage from "../../assets/backimg.jpg";
 import ServiceImage from "../../assets/ServiceImage.jpg";
 
 
 const ServiceTemplate = () => {
-  const [services] = useState(ServiceData);
+  const [servicesData, setServicesData] = useState(null);
+  
+    useEffect(() => {
+      let storedData = localStorage.getItem("servicesData");
+      if (!storedData) {
+        localStorage.setItem("servicesData", JSON.stringify(ServiceDataJson));
+        storedData = JSON.stringify(ServiceDataJson);
+      }
+  
+      setServicesData(JSON.parse(storedData)[0]);
+    }, []);
 
-  const gal = {
-    imageBack: bannerImage,
-    bannerHead: "Our Services",
-    bannerDesc: "Explore the best solutions for your business.",
-    bannerButton1: "Get Started",
-  };
+  
 
   return (
     <div className="services-container">
@@ -36,7 +43,7 @@ const ServiceTemplate = () => {
         </div>
 
         <div className="services-grid">
-          {services.map((service, index) => (
+          {servicesData.map((service, index) => (
             <div key={index} className="service-card">
               <div className="icon-container">{service.icon}</div>
               <h3 className="service-title">{service.title}</h3>

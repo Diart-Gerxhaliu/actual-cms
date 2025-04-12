@@ -12,7 +12,7 @@ const About = () => {
       storedData = JSON.stringify(aboutJson);
     }
 
-    setAboutData(JSON.parse(storedData));
+    setAboutData(JSON.parse(storedData)[0]);
   }, []);
 
   if (!aboutData) return <p>Loading...</p>;

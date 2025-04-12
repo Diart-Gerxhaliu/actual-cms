@@ -17,12 +17,11 @@ function Dashboard() {
   let [homeServices, setHomeServices] = useState(JSON.parse(localStorage.getItem("HomeServices"))||[]); 
   
   //* about page localStorage import
-  let [aboutBanner, setAboutBanner] = useState(JSON.parse(localStorage.getItem("AboutBanner"))||[]);
-  let [aboutAbout, setAboutAbout] = useState(JSON.parse(localStorage.getItem("AboutAbout"))||[]); 
+  let [aboutData, setAboutData] = useState(JSON.parse(localStorage.getItem("aboutData")) || [])
 
   //* services page localStorage import
   let [servicesBanner, setServicesBanner] = useState(JSON.parse(localStorage.getItem("ServicesBanner"))||[]);
-  let [servicesGalery, setServicesGalery] = useState(JSON.parse(localStorage.getItem("ServicesGalery"))||[]); 
+  let [servicesGalery, setServicesGalery] = useState(JSON.parse(localStorage.getItem("servicesData"))||[]); 
 
 
   //* feedback page localStorage import
@@ -58,6 +57,7 @@ function Dashboard() {
   if (!admin) {
     window.location.href='/admin/login'
   }
+console.log(aboutData, "=>abotu data");
 
   return (
     <div
@@ -384,7 +384,13 @@ function Dashboard() {
                   <div>
                     {homeBanner &&
                       homeBanner.map((gal, index) => (
-                        <div className="homeBanner" key={index}>
+                        <div className="homeBanner" key={index}
+                        style={
+                          dark
+                            ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+                            : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+                        }
+                        >
                           <h1>Banner</h1>
                           <input 
                             type="text"
@@ -450,7 +456,12 @@ function Dashboard() {
               
                     {homeAbout &&
                       homeAbout.map((gal, index) => (
-                        <div className="homeAbout" key={index}>
+                        <div className="homeAbout" key={index}
+                        style={
+                          dark
+                            ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+                            : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+                        }>
                           <h1>About</h1>
                           <input 
                             type="text"
@@ -529,7 +540,12 @@ function Dashboard() {
               
                     {homeServices &&
                       homeServices.map((gal, index) => (
-                        <div className='homeServices' key={index}>
+                        <div className='homeServices' key={index}
+                        style={
+                          dark
+                            ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+                            : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+                        }>
                           <h1>Services</h1>
                           <input 
                             type='text' 
@@ -574,126 +590,71 @@ function Dashboard() {
                   </div>
                 )}
                 {page === "About" && (
-              <>
-                {aboutBanner && (
-                    <>
-                    {aboutBanner.map((gal,index)=>{
-                      return<div className="aboutBanner">
-                        <h1>Banner</h1>
-                      <input 
-                      key={index}
-                      type='text' 
-                      name='change' 
-                      value={gal.imageBack} 
-                      onChange={(e)=>{
-                        const newAboutBanner = [...aboutBanner];
-                        newAboutBanner[index].imageBack = e.target.value;
-                        setAboutBanner(newAboutBanner);
-                        localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
-                      }}/>
-                      <input 
-                      key={index}
-                      type='text' 
-                      name='change' 
-                      value={gal.bannerHead} 
-                      onChange={(e)=>{
-                        const newAboutBanner = [...aboutBanner];
-                        newAboutBanner[index].bannerHead = e.target.value;
-                        setAboutBanner(newAboutBanner);
-                        localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
-                      }}/>
-                      <input 
-                      key={index}
-                      type='text' 
-                      name='change' 
-                      value={gal.bannerButton1} 
-                      onChange={(e)=>{
-                        const newAboutBanner = [...aboutBanner];
-                        newAboutBanner[index].bannerButton1 = e.target.value;
-                        setAboutBanner(newAboutBanner);
-                        localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
-                      }}/>
-                      
-                      </div>
-                    })}
-                    {aboutAbout.map((gal,index)=>{
-                      return<div className="aboutAbout">
-                        <h1>About</h1>
-                        <input 
-                        key={index}
-                        type='text' 
-                        name='change' 
-                        value={gal.aboutImage} 
-                        onChange={(e)=>{
-                          const newAboutBanner = [...aboutBanner];
-                          newAboutBanner[index].aboutImage = e.target.value;
-                          setAboutAbout(newAboutBanner);
-                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
-                        }}/>
-                        <input 
-                        key={index}
-                        type='text' 
-                        name='change' 
-                        value={gal.aboutHead} 
-                        onChange={(e)=>{
-                          const newAboutBanner = [...aboutBanner];
-                          newAboutBanner[index].aboutHead = e.target.value;
-                          setAboutAbout(newAboutBanner);
-                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
-                        }}/>
-                        <input 
-                        key={index}
-                        type='text' 
-                        name='change' 
-                        value={gal.aboutDesc} 
-                        onChange={(e)=>{
-                          const newAboutBanner = [...aboutBanner];
-                          newAboutBanner[index].aboutDesc = e.target.value;
-                          setAboutAbout(newAboutBanner);
-                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
-                        }}/>
-                        {gal.aboutList.map((serie,i)=>{
-                          return <>
-                            <input 
-                              key={index}
+                  <div>
+                    <h1>About Page</h1>
+                    {
+                      aboutData.map((gal,index)=>{
+                        return <div className='aboutData' key={index}
+                        style={
+                          dark
+                            ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+                            : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+                        }>
+                          {gal.banner.map((serie,i)=>{
+                            return <div className='banner'>
+                              <h2>Banner</h2>
+                              <input 
                               type='text' 
                               name='change' 
                               value={serie.image} 
-                              onChange={(e)=>{
-                                const newAboutBanner = [...aboutBanner];
-                                newAboutBanner[index].image = e.target.value;
-                                setAboutAbout(newAboutBanner);
-                                localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
+                              key={i} 
+                              onChange={(e) => {
+                                const newAbout = [...aboutData.banner];
+                                newAbout.banner.image = e.target.value;
+                                setAboutData(newAbout);
+                                localStorage.setItem("aboutData", JSON.stringify(newAbout));
                               }}/>
-                          </>
-                        })}
-                        <input 
-                        key={index}
-                        type='text' 
-                        name='change' 
-                        value={gal.buttonDesc} 
-                        onChange={(e)=>{
-                          const newAboutBanner = [...aboutBanner];
-                          newAboutBanner[index].buttonDesc = e.target.value;
-                          setAboutAbout(newAboutBanner);
-                          localStorage.setItem("AboutBanner", JSON.stringify(newAboutBanner))
-                        }}/>
-                      </div>
-                    })
+                              <input 
+                              type='text' 
+                              name='change' 
+                              value={serie.heading} 
+                              key={i} 
+                              onChange={(e) => {
+                                const newAbout = [...aboutData.banner];
+                                newAbout.banner.heading = e.target.value;
+                                setAboutData(newAbout);
+                                localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                              }}/>
+                              <input 
+                              type='text' 
+                              name='change' 
+                              value={serie.subheading} 
+                              key={i} 
+                              onChange={(e) => {
+                                const newAbout = [...aboutData.banner];
+                                newAbout.banner.subheading = e.target.value;
+                                setAboutData(newAbout);
+                                localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                              }}/>
+                            </div>
+                          })}
+                        </div>
+                      })
                     }
-                    </>
-                  
+                  </div>                  
                 )}
 
-                
-              </>
-                )}
                 {page === "Services" && (
                   <>
                     {servicesBanner && (
                         <>
                         {servicesBanner.map((gal,index)=>{
-                          return<div className="servicesBanner">
+                          return<div className="servicesBanner"
+                          style={
+                            dark
+                              ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+                              : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+                          }>
                             <h1>Banner</h1>
                             <input 
                             key={index}
@@ -731,7 +692,12 @@ function Dashboard() {
                           </div>
                         })
                         }
-                      <div className='servicesGalery'>
+                      <div className='servicesGalery'
+                      style={
+                        dark
+                          ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+                          : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+                      }>
                       <h1>Galery</h1>
                       {servicesGalery.map((gal,index)=>{
                         return <div>
