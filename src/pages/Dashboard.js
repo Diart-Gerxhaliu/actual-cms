@@ -143,16 +143,7 @@ console.log(aboutData, "=>abotu data");
       <div className="main">
         <h2 className="mainTitle">{selectedMenu}</h2>
 
-        {data === "header" && (
-          <div className="customization-section">
-            <h1>Header Customization</h1>
-            <p>
-              Choose from 9 different header styles to customize your website's
-              appearance
-            </p>
-            <HeaderCustomizer />
-          </div>
-        )}
+        
 
         {data === "dash" && (
           <div>
@@ -239,23 +230,23 @@ console.log(aboutData, "=>abotu data");
                   >General</button>
                   <button 
                     type='button'
-                    onClick={() => setPage("Home")}
+                    onClick={() => setStyle("Home")}
                   >Home</button>
                   <button
                     onClick={() => {
                       setSelectedMenu("Header Style");
-                      setData("header");
+                      setStyle("header");
                     }}
                   >
                     Header Style
                   </button>
                   <button 
                     type='button'
-                    onClick={() => setPage("About")}
+                    onClick={() => setStyle("About")}
                   >About</button>
                   <button 
                     type='button'
-                    onClick={() => setPage("Services")}
+                    onClick={() => setStyle("Services")}
                   >Services</button>
             </div>
             {style === "General" && (
@@ -377,6 +368,16 @@ console.log(aboutData, "=>abotu data");
             {style === "Menu"&&(
               <div></div>
             )}
+            {style === "header" && (
+          <div className="customization-section">
+            <h1>Header Customization</h1>
+            <p>
+              Choose from 9 different header styles to customize your website's
+              appearance
+            </p>
+            <HeaderCustomizer />
+          </div>
+        )}
 
 
           </div>

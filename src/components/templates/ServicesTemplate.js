@@ -37,15 +37,6 @@ const ServiceTemplate = () => {
 
   return (
     <div className="services-container">
-<<<<<<< HEAD
-      {/* <Banner
-        backImage={gal.imageBack}
-        h1={gal.bannerHead}
-        p={gal.bannerDesc}
-        button1={gal.bannerButton1}
-        button2={""}
-      /> */}
-=======
       {servicesBanner &&
         servicesBanner.map((banner, index) => (
           <Banner
@@ -57,7 +48,6 @@ const ServiceTemplate = () => {
             button2=""
           />
         ))}
->>>>>>> 26b38da30971a26100ca80aa68c6f2c74c65e6d8
 
       <div className="content-section">
         <div className="image-container">
