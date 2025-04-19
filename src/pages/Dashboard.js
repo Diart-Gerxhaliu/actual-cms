@@ -51,6 +51,71 @@ function Dashboard() {
     JSON.parse(localStorage.getItem("BannerStyle")) || []
   );
 
+  //!Config the blog
+  //*set the posts
+  const [blogPosts, setBlogPosts] = useState(JSON.parse(localStorage.getItem("blogPosts")) || [] )
+
+    const toggleConfig = (id) => {
+      const updatedPosts = blogPosts.map((post) =>
+        post.id === id ? { ...post, isConfigOpen: !post.isConfigOpen } : post
+      );
+      setBlogPosts(updatedPosts);
+    };
+  
+    const handleInputChange = (e, id, field) => {
+      const updatedPosts = blogPosts.map((post) => {
+        if (post.id === id) {
+          const updatedPost = { ...post, [field]: e.target.value };
+          return updatedPost;
+        }
+        return post;
+      });
+      setBlogPosts(updatedPosts);
+      localStorage.setItem("blogPosts", JSON.stringify(updatedPosts));
+    };
+
+
+    const handleTagChange = (e, postId, tagIndex) => {
+      const updatedPosts = blogPosts.map((post) => {
+        if (post.id === postId) {
+          const updatedTags = [...post.tags];
+          updatedTags[tagIndex] = e.target.value;
+          return { ...post, tags: updatedTags };
+        }
+        return post;
+      });
+      setBlogPosts(updatedPosts);
+      localStorage.setItem("blogPosts", JSON.stringify(updatedPosts));
+    };
+    
+    const removeTag = (postId, tagIndex) => {
+      const updatedPosts = blogPosts.map((post) => {
+        if (post.id === postId) {
+          const updatedTags = post.tags.filter((_, i) => i !== tagIndex);
+          return { ...post, tags: updatedTags };
+        }
+        return post;
+      });
+      setBlogPosts(updatedPosts);
+      localStorage.setItem("blogPosts", JSON.stringify(updatedPosts));
+    };
+
+
+    const addTag = (postId) => {
+      const updatedPosts = blogPosts.map((post) => {
+        if (post.id === postId) {
+          return { ...post, tags: [...post.tags, ""] };
+        }
+        return post;
+      });
+      setBlogPosts(updatedPosts);
+      localStorage.setItem("blogPosts", JSON.stringify(updatedPosts));
+    };
+    
+    
+
+
+
   //use Effect
 
   useEffect(() => {
@@ -288,9 +353,6 @@ function Dashboard() {
               <button type="button" onClick={() => setStyle("General")}>
                 General
               </button>
-              <button type="button" onClick={() => setStyle("Home")}>
-                Home
-              </button>
               <button
                 onClick={() => {
                   setSelectedMenu("Header Style");
@@ -298,12 +360,6 @@ function Dashboard() {
                 }}
               >
                 Header Style
-              </button>
-              <button type="button" onClick={() => setStyle("About")}>
-                About
-              </button>
-              <button type="button" onClick={() => setStyle("Services")}>
-                Services
               </button>
             </div>
             {style === "General" && (
@@ -471,6 +527,7 @@ function Dashboard() {
 
                 {page === "Home" && (
                   <div>
+                    <h1>Home Page</h1>
                     {homeBanner &&
                       homeBanner.map((element, index) => (
                         <div className="homeBanner" key={index}
@@ -885,6 +942,7 @@ function Dashboard() {
 
                 {page === "Services" && (
                   <>
+                    <h1>Services Page</h1>
                     {servicesBanner && (
                         <>
                         {servicesBanner.map((element,index)=>{
@@ -1039,42 +1097,100 @@ function Dashboard() {
         )}
 
         {data === "posts" && (
-          <div className="posts">
-            <div className="postsGalery">
-              {servicesGalery.map((element, index) => {
-                return (
-                  <div className="card" key={index}>
-                    <img src={element.galery} alt="" />
-                    <h1>{element.text}</h1>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setServicesGalery(
-                          servicesGalery.filter((_, i) => i !== index)
-                        );
-                      }}
-                    >
-                      Remove
-                    </button>
+          <div className="blog-grid row">
+          {blogPosts.map((post, index) => (
+            <div className="card" key={post.id}>
+              {!post.isConfigOpen ? (
+                <>
+                  <img src={post.image} alt={post.title} />
+                  <h2>{post.title}</h2>
+                  <p><strong>Date:</strong> {post.date}</p>
+                  <p><strong>Category:</strong> {post.category}</p>
+                  <p>{post.description}</p>
+                  <div className="tags">
+                    {post.tags.map((tag, i) => (
+                      <span key={i} className="tag">#{tag}</span>
+                    ))}
                   </div>
-                );
-              })}
+                </>
+              ) : (
+                <>
+                  <label>Title:</label>
+                  <input
+                    type="text"
+                    name="change"
+                    value={post.title}
+                    onChange={(e) => handleInputChange(e, post.id, "title")}
+                  />
+    
+                  <label>Description:</label>
+                  <input
+                    type="text"
+                    name="change"
+                    value={post.description}
+                    onChange={(e) => handleInputChange(e, post.id, "description")}
+                  />
+    
+                  <label>Image URL:</label>
+                  <input
+                    type="text"
+                    name="change"
+                    value={post.image}
+                    onChange={(e) => handleInputChange(e, post.id, "image")}
+                  />
+
+                  <label>Category:</label>
+                  <input
+                    type="text"
+                    name="change"
+                    value={post.category}
+                    onChange={(e) => handleInputChange(e, post.id, "image")}
+                  />
+                  <h3>Tags</h3>
+                  <div>
+                    {post.tags.length > 0 ? (
+                      post.tags.map((tag, i) => (
+                        <div key={i}>
+                          <input
+                            type="text"
+                            name="change"
+                            value={tag}
+                            onChange={(e) => handleTagChange(e, post.id, i)}
+                          />
+                          <button onClick={() => removeTag(post.id, i)}>Remove</button>
+                        </div>
+                      ))
+                    ) : (
+                      <p>No tags yet.</p>
+                    )}
+
+                    <button onClick={() => addTag(post.id)}>Add Tag</button>
+                    <br/>
+                    <label>Date:</label>
+                      <input
+                        type="text"
+                        name="change"
+                        value={post.date}
+                        onChange={(e) => handleInputChange(e, post.id, "image")}
+                      />
+                  </div>
+                  </>
+                )}
+      
+                <button
+                  onClick={() => toggleConfig(post.id)}
+                  style={{ marginTop: "10px", cursor: "pointer" }}
+                >
+                  {post.isConfigOpen ? "Close Config" : "Config"}
+                </button>
+
+
+                
             </div>
-            <button
-              type="button"
-              id="addButton"
-              onClick={() => {
-                const newItem = {
-                  galery:
-                    "https://images.pexels.com/photos/1546912/pexels-photo-1546912.jpeg",
-                  text: `UI/UX design`,
-                };
-                setServicesGalery([...servicesGalery, newItem]);
-              }}
-            >
-              Add new+
-            </button>
-          </div>
+          ))}
+
+                
+        </div>
         )}
       </div>
     </div>

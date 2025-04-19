@@ -118,21 +118,21 @@ tbody td {
 .aboutData,
 .servicesBanner,
 .servicesGalery {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Adds spacing between input fields */
-    padding: 15px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Space between each homeBanner block */
-    max-width: 800px; /* Adjust width */
-    margin: auto;
-  }
-  
-  .homeBanner input, 
-  .homeAbout input, 
-  .homeServices input,
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adds spacing between input fields */
+  padding: 15px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Space between each homeBanner block */
+  max-width: 800px; /* Adjust width */
+  margin: auto;
+}
+
+.homeBanner input,
+.homeAbout input,
+.homeServices input,
   .aboutData input,
   .servicesBanner input,
   .servicesGalery input{
@@ -155,7 +155,7 @@ tbody td {
   .row{
     margin-bottom: 50px;
   }
-.aboutAbout,
+.aboutData,
 .aboutBanner,
 .servicesBanner,
 .servicesGalery {
@@ -175,7 +175,7 @@ tbody td {
 .homeAbout input,
 .homeServices input,
 .aboutAbout input,
-.aboutBanner input,
+.aboutData input,
 .servicesBanner input,
 .servicesGalery input {
   width: 100%;
@@ -189,7 +189,7 @@ tbody td {
 .homeAbout input:focus,
 .homeServices input:focus,
 .aboutAbout input:focus,
-.aboutBanner input:focus,
+.aboutData input:focus,
 .servicesBanner input:focus,
 .servicesGalery input:focus {
   border-color: #007bff;
