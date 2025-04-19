@@ -39,18 +39,19 @@ const ServiceTemplate = () => {
 
   return (
     <div className="services-container">
-      {servicesBanner &&
-        servicesBanner.map((banner, index) => (
-          <Banner
-            key={index}
-            backImage={banner.imageBack}
-            h1={banner.bannerHead}
-            p={banner.bannerDesc}
-            button1={banner.bannerButton1}
-            button2=""
-          />
-        ))}
-
+      <div className="services-banner">
+        {servicesBanner &&
+          servicesBanner.map((banner, index) => (
+            <Banner
+              key={index}
+              backImage={banner.imageBack}
+              h1={banner.bannerHead}
+              p={banner.bannerDesc}
+              button1={banner.bannerButton1}
+              button2=""
+            />
+          ))}
+      </div>
       <div className="content-section">
         <div className="image-container">
           <img src={ServiceImage} alt="Business" className="service-image" />

@@ -8,45 +8,6 @@ body {
   margin-top: 90px;
 }
 
-/* Navigation Bar */
-.menu {
-  display: flex;
-  align-items: center;
-  background-color: black;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-/* Logo */
-.menu img {
-  width: 140px;
-  height: auto;
-  padding: 5px;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  list-style: none;
-  align-items: center;
-  gap: 50px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
-}
-
-.navbar a:hover {
-  color: #ffcc00;
-}
-
 .banner {
   height: 600px;
   background-repeat: no-repeat;
@@ -101,7 +62,15 @@ button:hover {
   flex-wrap: wrap;
   margin-top: 20px;
 }
-
+.roww {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .menu {
@@ -115,7 +84,10 @@ button:hover {
   }
 
   .row {
-    flex-direction: column;
+    flex-direction: row;
+  }
+  .roww {
+    flex-direction: row;
   }
 
   .home .banner {
@@ -126,7 +98,6 @@ button:hover {
   width: 100%;
   background-color: black;
   margin: 0;
-  height: auto;
   padding: 25px;
 }
 
