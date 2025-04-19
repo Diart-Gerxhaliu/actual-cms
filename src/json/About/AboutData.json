@@ -2,7 +2,7 @@
   {
     "banner": {
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXcvgW-KJUiiRMFR_CX6JLTJezxER_GoXhaA&s  ",
-      "heading": "About Ziptech",
+      "heading": "About IACMS",
       "subheading": "Delivering Innovative IT Solutions for Businesses Worldwide"
     },
     "vision": {
@@ -22,7 +22,7 @@
       "image": "https://www.t-systems.com/resource/image/985020/ratio3x2/1440/960/fe0d14c0354fc329ad1f4cff5a1c1cf/B67A5438A6A603902EB00238D865C739/im-what-we-offer-local.jpg"
     },
     "reasons": {
-      "title": "Why Choose Ziptech?",
+      "title": "Why Choose IACMS?",
       "list": [
         "Experienced & passionate development team",
         "Client-centric, result-driven approach",
@@ -34,11 +34,11 @@
     },
     "commitment": {
       "title": "Our Commitment",
-      "description": "At Ziptech, we don't just deliver projects — we build long-term partnerships based on trust, integrity, and a shared vision for success. Your goals become our mission."
+      "description": "At IACMS, we don't just deliver projects — we build long-term partnerships based on trust, integrity, and a shared vision for success. Your goals become our mission."
     },
     "cta": {
       "title": "Let’s Innovate Together",
-      "description": "Ready to take your business to the next level? Contact Ziptech today and let's build powerful solutions that drive real results.",
+      "description": "Ready to take your business to the next level? Contact IACMS today and let's build powerful solutions that drive real results.",
       "buttonText": "Contact Us",
       "buttonLink": "/contact"
     }

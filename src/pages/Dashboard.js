@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeaderCustomizer from "../components/organisms/HeaderCustomizer";
 import "./Dashboard.css";
 
@@ -13,10 +13,16 @@ function Dashboard() {
 
   //! Content
   //* home page localStorage import
-  let [homeBanner, setHomeBanner] = useState(JSON.parse(localStorage.getItem("HomeBanner"))||[]);
-  let [homeAbout, setHomeAbout] = useState(JSON.parse(localStorage.getItem("HomeAbout"))||[]);
-  let [homeServices, setHomeServices] = useState(JSON.parse(localStorage.getItem("HomeServices"))||[]); 
-  
+  let [homeBanner, setHomeBanner] = useState(
+    JSON.parse(localStorage.getItem("HomeBanner")) || []
+  );
+  let [homeAbout, setHomeAbout] = useState(
+    JSON.parse(localStorage.getItem("HomeAbout")) || []
+  );
+  let [homeServices, setHomeServices] = useState(
+    JSON.parse(localStorage.getItem("HomeServices")) || []
+  );
+
   //* about page localStorage import
   let [aboutData, setAboutData] = useState(JSON.parse(localStorage.getItem("aboutData"))|| [])
 
@@ -33,32 +39,34 @@ function Dashboard() {
 
   //! Style
   //*Body
-  let [bodyStyle, setBodyStyle] = useState(JSON.parse(localStorage.getItem("BodyStyle")))
+  let [bodyStyle, setBodyStyle] = useState(
+    JSON.parse(localStorage.getItem("BodyStyle"))
+  );
   //*Menu
-  let [menuStyle, setMenuStyle] = useState(JSON.parse(localStorage.getItem("MenuStyle"))||[]); 
+  let [menuStyle, setMenuStyle] = useState(
+    JSON.parse(localStorage.getItem("MenuStyle")) || []
+  );
   //*Banner
-  let [bannerStyle, setBannerStyle] = useState(JSON.parse(localStorage.getItem("BannerStyle"))||[]); 
-
-
+  let [bannerStyle, setBannerStyle] = useState(
+    JSON.parse(localStorage.getItem("BannerStyle")) || []
+  );
 
   //use Effect
 
   useEffect(() => {
-    
     localStorage.setItem("ServicesGalery", JSON.stringify(servicesGalery));
   }, [servicesGalery]);
 
   if (dark) {
-    document.body.style.background= "black";
-  }else{
-    document.body.style.background= "white";
-    
+    document.body.style.background = "black";
+  } else {
+    document.body.style.background = "white";
   }
 
   if (!admin) {
-    window.location.href='/admin/login'
+    window.location.href = "/admin/login";
   }
-console.log(aboutData, "=>abotu data");
+  console.log(aboutData, "=>abotu data");
 
   return (
     <div
@@ -82,7 +90,9 @@ console.log(aboutData, "=>abotu data");
       </div>
       <div
         className="sideMenu"
-        style={dark ? { backgroundColor: "#333" } : { backgroundColor: "#f4f4f4" }}
+        style={
+          dark ? { backgroundColor: "#333" } : { backgroundColor: "#f4f4f4" }
+        }
       >
         <h1
           onClick={() => {
@@ -127,7 +137,6 @@ console.log(aboutData, "=>abotu data");
           </h1>
         </div>
         <div className="group">
-          
           <h1
             onClick={() => {
               setSelectedMenu("Settings");
@@ -136,35 +145,56 @@ console.log(aboutData, "=>abotu data");
           >
             Settings
           </h1>
-          <h1 onClick={() => setSelectedMenu("Collapse Menu")}>Collapse Menu</h1>
+          <h1 onClick={() => setSelectedMenu("Collapse Menu")}>
+            Collapse Menu
+          </h1>
         </div>
       </div>
 
       <div className="main">
         <h2 className="mainTitle">{selectedMenu}</h2>
 
-        
-
         {data === "dash" && (
           <div>
-            <div >
+            <div>
               <h2 className="elementTitle">Site Info</h2>
-              <div className="tableWrapper" style={
-          dark
-            ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
-            : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
-        }>
-                <table style={
-          dark
-            ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
-            : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
-        }>
+              <div
+                className="tableWrapper"
+                style={
+                  dark
+                    ? {
+                        backgroundColor: "#333",
+                        color: "white",
+                        borderColor: "black",
+                      }
+                    : {
+                        backgroundColor: "#f4f4f4",
+                        color: "black",
+                        borderColor: "white",
+                      }
+                }
+              >
+                <table
+                  style={
+                    dark
+                      ? {
+                          backgroundColor: "#333",
+                          color: "white",
+                          borderColor: "black",
+                        }
+                      : {
+                          backgroundColor: "#f4f4f4",
+                          color: "black",
+                          borderColor: "white",
+                        }
+                  }
+                >
                   <thead>
                     <tr>
                       <th colSpan="2">Site Info</th>
                     </tr>
                   </thead>
-                  <tbody >
+                  <tbody>
                     <tr>
                       <td>URL:</td>
                       <td>Project Name</td>
@@ -180,16 +210,37 @@ console.log(aboutData, "=>abotu data");
 
             <div>
               <h2 className="elementTitle">Last Upload</h2>
-              <div className="tableWrapper" 
-              style={dark
-                ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
-                : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
-              }>
-                <table style={
+              <div
+                className="tableWrapper"
+                style={
                   dark
-                    ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
-                    : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
-                  }>
+                    ? {
+                        backgroundColor: "#333",
+                        color: "white",
+                        borderColor: "black",
+                      }
+                    : {
+                        backgroundColor: "#f4f4f4",
+                        color: "black",
+                        borderColor: "white",
+                      }
+                }
+              >
+                <table
+                  style={
+                    dark
+                      ? {
+                          backgroundColor: "#333",
+                          color: "white",
+                          borderColor: "black",
+                        }
+                      : {
+                          backgroundColor: "#f4f4f4",
+                          color: "black",
+                          borderColor: "white",
+                        }
+                  }
+                >
                   <thead>
                     <tr>
                       <th colSpan="2">Last Upload</th>
@@ -210,11 +261,21 @@ console.log(aboutData, "=>abotu data");
         {data === "settings" && (
           <div className="settings">
             {dark ? (
-              <button type="button" onClick={() => {setDark(false)}}>
+              <button
+                type="button"
+                onClick={() => {
+                  setDark(false);
+                }}
+              >
                 Light Mode
               </button>
             ) : (
-              <button type="button" onClick={() => {setDark(true)}}>
+              <button
+                type="button"
+                onClick={() => {
+                  setDark(true);
+                }}
+              >
                 Dark Mode
               </button>
             )}
@@ -222,184 +283,191 @@ console.log(aboutData, "=>abotu data");
         )}
 
         {data === "style" && (
-          <div className='style'>
-            <div className='row'>
-                  <button 
-                    type='button'
-                    onClick={() => setStyle("General")}
-                  >General</button>
-                  <button 
-                    type='button'
-                    onClick={() => setStyle("Home")}
-                  >Home</button>
-                  <button
-                    onClick={() => {
-                      setSelectedMenu("Header Style");
-                      setStyle("header");
-                    }}
-                  >
-                    Header Style
-                  </button>
-                  <button 
-                    type='button'
-                    onClick={() => setStyle("About")}
-                  >About</button>
-                  <button 
-                    type='button'
-                    onClick={() => setStyle("Services")}
-                  >Services</button>
+          <div className="style">
+            <div className="row">
+              <button type="button" onClick={() => setStyle("General")}>
+                General
+              </button>
+              <button type="button" onClick={() => setStyle("Home")}>
+                Home
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedMenu("Header Style");
+                  setStyle("header");
+                }}
+              >
+                Header Style
+              </button>
+              <button type="button" onClick={() => setStyle("About")}>
+                About
+              </button>
+              <button type="button" onClick={() => setStyle("Services")}>
+                Services
+              </button>
             </div>
             {style === "General" && (
-              <div className='general'>
-
-                <div className='bodyGeneral stylesSpan'>
+              <div className="general">
+                <div className="bodyGeneral stylesSpan">
                   <h1>Body</h1>
-                    <div>
-                      <h3>Font Family</h3>
-                      <input 
-                        type="text"
-                        name="change"
-                        value={bodyStyle.fontFamily}
-                        onChange={(e) => {
-                          const newStyle = {...bodyStyle};
-                          newStyle.fontFamily = e.target.value;
-                          setBodyStyle(newStyle);  
-                          localStorage.setItem("BodyStyle", JSON.stringify(newStyle));
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <h3>Text Align</h3>
-                      <input 
-                        type="text"
-                        name="change"
-                        value={bodyStyle.textAlign}
-                        onChange={(e) => {
-                          const newStyle = {...bodyStyle};
-                          newStyle.textAlign = e.target.value;
-                          setBodyStyle(newStyle);  
-                          localStorage.setItem("BodyStyle", JSON.stringify(newStyle));
-                        }}
-                      />
-                    </div>
+                  <div>
+                    <h3>Font Family</h3>
+                    <input
+                      type="text"
+                      name="change"
+                      value={bodyStyle.fontFamily}
+                      onChange={(e) => {
+                        const newStyle = { ...bodyStyle };
+                        newStyle.fontFamily = e.target.value;
+                        setBodyStyle(newStyle);
+                        localStorage.setItem(
+                          "BodyStyle",
+                          JSON.stringify(newStyle)
+                        );
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <h3>Text Align</h3>
+                    <input
+                      type="text"
+                      name="change"
+                      value={bodyStyle.textAlign}
+                      onChange={(e) => {
+                        const newStyle = { ...bodyStyle };
+                        newStyle.textAlign = e.target.value;
+                        setBodyStyle(newStyle);
+                        localStorage.setItem(
+                          "BodyStyle",
+                          JSON.stringify(newStyle)
+                        );
+                      }}
+                    />
+                  </div>
                 </div>
-                
-                <div className='menuGeneral stylesSpan'>
+
+                <div className="menuGeneral stylesSpan">
                   <h1>Menu</h1>
                   <div>
                     <h3>Height</h3>
-                    <input 
+                    <input
                       type="text"
                       name="change"
                       value={menuStyle.height}
                       onChange={(e) => {
-                        const newStyle = {...menuStyle};
+                        const newStyle = { ...menuStyle };
                         newStyle.height = e.target.value;
-                        setMenuStyle(newStyle);  
-                        localStorage.setItem("MenuStyle", JSON.stringify(newStyle));
+                        setMenuStyle(newStyle);
+                        localStorage.setItem(
+                          "MenuStyle",
+                          JSON.stringify(newStyle)
+                        );
                       }}
                     />
                   </div>
                   <div>
                     <h3>Justify Content</h3>
-                    <input 
-                    type="text"
-                    name="change"
-                    value={menuStyle.justifyContent}
-                    onChange={(e) => {
-                      const newStyle = {...menuStyle};
-                      newStyle.justifyContent = e.target.value;
-                      setMenuStyle(newStyle);  
-                      localStorage.setItem("MenuStyle", JSON.stringify(newStyle));
-                    }}
-                  />
+                    <input
+                      type="text"
+                      name="change"
+                      value={menuStyle.justifyContent}
+                      onChange={(e) => {
+                        const newStyle = { ...menuStyle };
+                        newStyle.justifyContent = e.target.value;
+                        setMenuStyle(newStyle);
+                        localStorage.setItem(
+                          "MenuStyle",
+                          JSON.stringify(newStyle)
+                        );
+                      }}
+                    />
                   </div>
                   <div>
                     <h3>Padding</h3>
-                  <input 
-                    type="text"
-                    name="change"
-                    value={menuStyle.padding}
-                    onChange={(e) => {
-                      const newStyle = {...menuStyle};
-                      newStyle.padding = e.target.value;
-                      setMenuStyle(newStyle);  
-                      localStorage.setItem("MenuStyle", JSON.stringify(newStyle));
-                    }}
-                  />
+                    <input
+                      type="text"
+                      name="change"
+                      value={menuStyle.padding}
+                      onChange={(e) => {
+                        const newStyle = { ...menuStyle };
+                        newStyle.padding = e.target.value;
+                        setMenuStyle(newStyle);
+                        localStorage.setItem(
+                          "MenuStyle",
+                          JSON.stringify(newStyle)
+                        );
+                      }}
+                    />
                   </div>
                 </div>
 
-                <div className='bannerGeneral stylesSpan'>
-                    <h1>Banner</h1>
-                    <div>
-                      <h3>Height</h3>
-                      <input 
-                        type="text"
-                        name="change"
-                        value={bannerStyle.height}
-                        onChange={(e) => {
-                          const newStyle = {...bannerStyle};
-                          newStyle.height = e.target.value;
-                          setBannerStyle(newStyle);  
-                          localStorage.setItem("BannerStyle", JSON.stringify(newStyle));
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <h3>Height</h3>
-                      <input 
-                        type="text"
-                        name="change"
-                        value={bannerStyle.height}
-                        onChange={(e) => {
-                          const newStyle = {...bannerStyle};
-                          newStyle.height = e.target.value;
-                          setBannerStyle(newStyle);  
-                          localStorage.setItem("BannerStyle", JSON.stringify(newStyle));
-                        }}
-                      />
-                    </div>
+                <div className="bannerGeneral stylesSpan">
+                  <h1>Banner</h1>
+                  <div>
+                    <h3>Height</h3>
+                    <input
+                      type="text"
+                      name="change"
+                      value={bannerStyle.height}
+                      onChange={(e) => {
+                        const newStyle = { ...bannerStyle };
+                        newStyle.height = e.target.value;
+                        setBannerStyle(newStyle);
+                        localStorage.setItem(
+                          "BannerStyle",
+                          JSON.stringify(newStyle)
+                        );
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <h3>Height</h3>
+                    <input
+                      type="text"
+                      name="change"
+                      value={bannerStyle.height}
+                      onChange={(e) => {
+                        const newStyle = { ...bannerStyle };
+                        newStyle.height = e.target.value;
+                        setBannerStyle(newStyle);
+                        localStorage.setItem(
+                          "BannerStyle",
+                          JSON.stringify(newStyle)
+                        );
+                      }}
+                    />
+                  </div>
                 </div>
-                    
               </div>
             )}
 
-            {style === "Menu"&&(
-              <div></div>
-            )}
+            {style === "Menu" && <div></div>}
             {style === "header" && (
-          <div className="customization-section">
-            <h1>Header Customization</h1>
-            <p>
-              Choose from 9 different header styles to customize your website's
-              appearance
-            </p>
-            <HeaderCustomizer />
+              <div className="customization-section">
+                <h1>Header Customization</h1>
+                <p>
+                  Choose from 9 different header styles to customize your
+                  website's appearance
+                </p>
+                <HeaderCustomizer />
+              </div>
+            )}
           </div>
         )}
-
-
-          </div>
-        )}
-        
 
         {data === "pages" && (
-              <>
-                <div className='row'>
-                  <button 
-                    type='button'
-                    onClick={() => setPage("Home")}
-                  >Home</button>
-                  <button 
-                    type='button'
-                    onClick={() => setPage("About")}
-                  >About</button>
-                  <button 
-                    type='button'
-                    onClick={() => setPage("Services")}
-                  >Services</button>
-                </div>
+          <>
+            <div className="row">
+              <button type="button" onClick={() => setPage("Home")}>
+                Home
+              </button>
+              <button type="button" onClick={() => setPage("About")}>
+                About
+              </button>
+              <button type="button" onClick={() => setPage("Services")}>
+                Services
+              </button>
+            </div>
 
                 {page === "Home" && (
                   <div>
@@ -823,40 +891,60 @@ console.log(aboutData, "=>abotu data");
                           return <div className="servicesBanner"
                           style={
                             dark
-                              ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
-                              : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
-                          }>
-                            <h1>Banner</h1>
-                            <input 
+                              ? {
+                                  backgroundColor: "#333",
+                                  color: "white",
+                                  borderColor: "black",
+                                }
+                              : {
+                                  backgroundColor: "#f4f4f4",
+                                  color: "black",
+                                  borderColor: "white",
+                                }
+                          }
+                        >
+                          <h1>Banner</h1>
+                          <input
                             key={index}
-                            type='text' 
-                            name='change' 
-                            value={element.imageBack} 
-                            onChange={(e)=>{
+                            type="text"
+                            name="change"
+                            value={element.imageBack}
+                            onChange={(e) => {
                               const newServicesBanner = [...servicesBanner];
-                              newServicesBanner[index].imageBack = e.target.value;
+                              newServicesBanner[index].imageBack =
+                                e.target.value;
                               setServicesBanner(newServicesBanner);
-                              localStorage.setItem("ServicesBanner", JSON.stringify(newServicesBanner))
-                            }}/>
-                            <input 
+                              localStorage.setItem(
+                                "ServicesBanner",
+                                JSON.stringify(newServicesBanner)
+                              );
+                            }}
+                          />
+                          <input
                             key={index}
-                            type='text' 
-                            name='change' 
-                            value={element.bannerHead} 
-                            onChange={(e)=>{
+                            type="text"
+                            name="change"
+                            value={element.bannerHead}
+                            onChange={(e) => {
                               const newServicesBanner = [...servicesBanner];
-                              newServicesBanner[index].bannerHead = e.target.value;
+                              newServicesBanner[index].bannerHead =
+                                e.target.value;
                               setServicesBanner(newServicesBanner);
-                              localStorage.setItem("ServicesBanner", JSON.stringify(newServicesBanner))
-                            }}/>
-                            <input 
+                              localStorage.setItem(
+                                "ServicesBanner",
+                                JSON.stringify(newServicesBanner)
+                              );
+                            }}
+                          />
+                          <input
                             key={index}
-                            type='text' 
-                            name='change' 
-                            value={element.bannerButton1} 
-                            onChange={(e)=>{
+                            type="text"
+                            name="change"
+                            value={element.bannerButton1}
+                            onChange={(e) => {
                               const newServicesBanner = [...servicesBanner];
-                              newServicesBanner[index].bannerButton1 = e.target.value;
+                              newServicesBanner[index].bannerButton1 =
+                                e.target.value;
                               setServicesBanner(newServicesBanner);
                               localStorage.setItem("ServicesBanner", JSON.stringify(newServicesBanner))
                             }}/>
@@ -866,9 +954,18 @@ console.log(aboutData, "=>abotu data");
                       {<div className='servicesGalery'
                       style={
                         dark
-                          ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
-                          : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
-                      }>
+                          ? {
+                              backgroundColor: "#333",
+                              color: "white",
+                              borderColor: "black",
+                            }
+                          : {
+                              backgroundColor: "#f4f4f4",
+                              color: "black",
+                              borderColor: "white",
+                            }
+                      }
+                    >
                       <h1>Galery</h1>
                       {servicesGalery.map((element,index)=>{
                         return <div>
@@ -927,7 +1024,7 @@ console.log(aboutData, "=>abotu data");
               feedback.map((element, index) => (
                 <div className="card" key={index}>
                   <h1>{element.name}</h1>
-                    <h2>{element.subject}</h2>
+                  <h2>{element.subject}</h2>
                   <div className="row">
                     <h2>{element.phone}</h2>
                     <h2>{element.email}</h2>
@@ -941,39 +1038,44 @@ console.log(aboutData, "=>abotu data");
           </div>
         )}
 
-
         {data === "posts" && (
-          <div className='posts'>
-          <div className='postsGalery'>
-            {servicesGalery.map((element,index)=>{
-              return <div className="card" key={index}>
-                
-                    <img src={element.galery} alt='' />
+          <div className="posts">
+            <div className="postsGalery">
+              {servicesGalery.map((element, index) => {
+                return (
+                  <div className="card" key={index}>
+                    <img src={element.galery} alt="" />
                     <h1>{element.text}</h1>
-                    <button type='button'
-                    onClick={()=>{
-                      setServicesGalery(servicesGalery.filter((_, i) => i !== index));
-                    }}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setServicesGalery(
+                          servicesGalery.filter((_, i) => i !== index)
+                        );
+                      }}
+                    >
                       Remove
                     </button>
-
-
                   </div>
-              
-                        
-            })}
+                );
+              })}
             </div>
-            <button type='button' id="addButton" onClick={()=>{
-                  const newItem = {
-                    galery: "https://images.pexels.com/photos/1546912/pexels-photo-1546912.jpeg", 
-                    text: `UI/UX design`,
-                  };
-                  setServicesGalery([...servicesGalery, newItem]);
-            }}>Add new+</button>
+            <button
+              type="button"
+              id="addButton"
+              onClick={() => {
+                const newItem = {
+                  galery:
+                    "https://images.pexels.com/photos/1546912/pexels-photo-1546912.jpeg",
+                  text: `UI/UX design`,
+                };
+                setServicesGalery([...servicesGalery, newItem]);
+              }}
+            >
+              Add new+
+            </button>
           </div>
         )}
-            
-
       </div>
     </div>
   );
