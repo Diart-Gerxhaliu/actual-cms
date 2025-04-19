@@ -6,26 +6,28 @@ import ServiceBannerJson from "../../json/Service/Banner.json";
 import Banner from "../organisms/Banner";
 import ServiceImage from "../../assets/ServiceImage.jpg";
 
-
 const ServiceTemplate = () => {
   const [servicesData, setServicesData] = useState(null);
-  const [servicesBanner, setServicesBanner] = useState(null);
+  const [servicesBanner, setServicesBanner] = useState([]);
 
   useEffect(() => {
     console.log("Fetching data from localStorage...");
     try {
       let storedData = localStorage.getItem("servicesData");
       let bannerData = localStorage.getItem("servicesBanner");
-  
+
       if (!storedData) {
         localStorage.setItem("servicesData", JSON.stringify(ServiceDataJson));
         setServicesData(ServiceDataJson);
       } else {
         setServicesData(JSON.parse(storedData));
       }
-  
+
       if (!bannerData) {
-        localStorage.setItem("servicesBanner", JSON.stringify(ServiceBannerJson));
+        localStorage.setItem(
+          "servicesBanner",
+          JSON.stringify(ServiceBannerJson)
+        );
         setServicesBanner(ServiceBannerJson);
       } else {
         setServicesBanner(JSON.parse(bannerData));
@@ -33,7 +35,7 @@ const ServiceTemplate = () => {
     } catch (error) {
       console.error("Error parsing localStorage data:", error);
     }
-  }, []); 
+  }, []);
 
   return (
     <div className="services-container">
@@ -51,11 +53,7 @@ const ServiceTemplate = () => {
 
       <div className="content-section">
         <div className="image-container">
-          <img
-            src={ServiceImage}
-            alt="Business"
-            className="service-image"
-          />
+          <img src={ServiceImage} alt="Business" className="service-image" />
         </div>
 
         <div className="services-grid">
@@ -72,6 +70,5 @@ const ServiceTemplate = () => {
     </div>
   );
 };
-
 
 export default ServiceTemplate;

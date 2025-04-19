@@ -19,7 +19,6 @@ const About = () => {
 
   return (
     <div className="about-page">
-      {/* Preload banner image */}
       <link rel="preload" href={aboutData.banner.image} as="image" />
 
       <div className="about-banner-image">

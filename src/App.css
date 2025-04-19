@@ -5,11 +5,8 @@
 }
 
 body {
-  
   margin-top: 90px;
 }
-
-
 
 /* Navigation Bar */
 .menu {
@@ -51,7 +48,6 @@ body {
 }
 
 .banner {
-  
   height: 600px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -77,7 +73,6 @@ body {
   padding: 20px;
   border-radius: 50px;
 }
-
 
 /* Button Styling */
 button {
@@ -135,8 +130,7 @@ button:hover {
   padding: 25px;
 }
 
-
-.footer img{
+.footer img {
   width: 75px;
   background-color: white;
   border-radius: 50%;
