@@ -8,16 +8,17 @@
         "child":"About"
     },
     {
+        "href":"/blog",
+        "child":"Blog"
+    },
+    {
         "href":"/services",
         "child":"Services"
     },
     {
         "href":"/contact",
         "child":"Contact"
-    },
-    {
-        "href":"/blog",
-        "child":"Blog"
     }
+    
 
 ]
