@@ -18,10 +18,10 @@ function Dashboard() {
   let [homeServices, setHomeServices] = useState(JSON.parse(localStorage.getItem("HomeServices"))||[]); 
   
   //* about page localStorage import
-  let [aboutData, setAboutData] = useState(JSON.parse(localStorage.getItem("aboutData")) || [])
+  let [aboutData, setAboutData] = useState(JSON.parse(localStorage.getItem("aboutData"))|| [])
 
   //* services page localStorage import
-  let [servicesBanner, setServicesBanner] = useState(JSON.parse(localStorage.getItem("ServicesBanner"))||[]);
+  let [servicesBanner, setServicesBanner] = useState(JSON.parse(localStorage.getItem("servicesBanner"))||[]);
   let [servicesGalery, setServicesGalery] = useState(JSON.parse(localStorage.getItem("servicesData"))||[]); 
 
 
@@ -568,17 +568,7 @@ console.log(aboutData, "=>abotu data");
                             : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
                         }>
                           <h1>Services</h1>
-                          <input 
-                            type='text' 
-                            name='change' 
-                            value={element.head} 
-                            onChange={(e) => {
-                              const newServices = [...homeServices];
-                              newServices[index].head = e.target.value;
-                              setHomeServices(newServices);
-                              localStorage.setItem("HomeServices", JSON.stringify(newServices));
-                            }}
-                          />
+                          
                           
                           {element.card.map((serie, i) => (
                             <div key={i}>
@@ -613,64 +603,224 @@ console.log(aboutData, "=>abotu data");
                 {page === "About" && (
                   <div>
                     <h1>About Page</h1>
-                    {
-                      aboutData.map((element,index)=>{
-                        return <div className='aboutData' key={index}
+                    {aboutData.map((element, index) => (
+                      <div
+                        className='aboutData'
+                        key={index}
                         style={
                           dark
-                            ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
-                            : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
-                        }>
-                          {element.banner.map((serie,i)=>{
-                            return <div className='banner'>
-                              <h2>Banner</h2>
-                              <input 
-                              type='text' 
-                              name='change' 
-                              value={serie.image} 
-                              key={i} 
-                              onChange={(e) => {
-                                const newAbout = [...aboutData.banner];
-                                newAbout.banner.image = e.target.value;
-                                setAboutData(newAbout);
-                                localStorage.setItem("aboutData", JSON.stringify(newAbout));
-                              }}/>
-                              <input 
-                              type='text' 
-                              name='change' 
-                              value={serie.heading} 
-                              key={i} 
-                              onChange={(e) => {
-                                const newAbout = [...aboutData.banner];
-                                newAbout.banner.heading = e.target.value;
-                                setAboutData(newAbout);
-                                localStorage.setItem("aboutData", JSON.stringify(newAbout));
-                              }}/>
-                              <input 
-                              type='text' 
-                              name='change' 
-                              value={serie.subheading} 
-                              key={i} 
-                              onChange={(e) => {
-                                const newAbout = [...aboutData.banner];
-                                newAbout.banner.subheading = e.target.value;
-                                setAboutData(newAbout);
-                                localStorage.setItem("aboutData", JSON.stringify(newAbout));
-                              }}/>
-                            </div>
-                          })}
+                            ? { backgroundColor: "#333", color: "white", borderColor: "black" }
+                            : { backgroundColor: "#f4f4f4", color: "black", borderColor: "white" }
+                        }
+                      >
+                        <div className='aboutbanner'>
+                          <h2>Banner</h2>
+                          <input
+                            type='text'
+                            value={element.banner.image}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].banner.image = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                          <input
+                            type='text'
+                            value={element.banner.heading}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].banner.heading = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                          <input
+                            type='text'
+                            value={element.banner.subheading}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].banner.subheading = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
                         </div>
-                      })
-                    }
-                  </div>                  
+                        <div className='aboutvision'>
+                          <h2>Vision</h2>
+                          <input
+                            type='text'
+                            value={element.vision.title}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].vision.title = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                          <input
+                            type='text'
+                            value={element.vision.description}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].vision.description = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                        </div>
+                        <div className='aboutservices'>
+                          <h2>Services</h2>
+                          <input
+                            type='text'
+                            value={element.services.title}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].services.title = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                          {
+                            element.services.list.map((item, i) => (
+                              <input
+                            type='text'
+                            value={item}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].item = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                            ))
+                          }
+                          <input
+                            type='text'
+                            value={element.services.image}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].services.image = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                        </div>
+                        <div className='aboutreasons'>
+                          <h2>Reasons</h2>
+                          <input
+                            type='text'
+                            value={element.reasons.title}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].reasons.title = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                          {element.reasons.list.map((item, i) => (
+                              <input
+                            type='text'
+                            value={item}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].item = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                            ))}
+                          <input
+                            type='text'
+                            value={element.reasons.image}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].reasons.image = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                        </div>
+                        <div className='aboutcommitment'>
+                          <h2>Commitment</h2>
+                          <input
+                            type='text'
+                            value={element.commitment.title}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].commitment.title = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                          <input
+                            type='text'
+                            value={element.commitment.description}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].commitment.description = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                          
+                        </div>
+                        <div className='aboutcta'>
+                          <h2>Cta</h2>
+                          <input
+                            type='text'
+                            value={element.cta.title}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].cta.title = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                          <input
+                            type='text'
+                            value={element.cta.description}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].cta.description = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                          <input
+                            type='text'
+                            value={element.cta.buttonText}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].cta.buttonText = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                          <input
+                            type='text'
+                            value={element.cta.buttonLink}
+                            onChange={(e) => {
+                              const newAbout = [...aboutData];
+                              newAbout[index].cta.buttonLink = e.target.value;
+                              setAboutData(newAbout);
+                              localStorage.setItem("aboutData", JSON.stringify(newAbout));
+                            }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
                 )}
+
 
                 {page === "Services" && (
                   <>
                     {servicesBanner && (
                         <>
                         {servicesBanner.map((element,index)=>{
-                          return<div className="servicesBanner"
+                          return <div className="servicesBanner"
                           style={
                             dark
                               ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
@@ -713,7 +863,7 @@ console.log(aboutData, "=>abotu data");
                           </div>
                         })
                         }
-                      <div className='servicesGalery'
+                      {<div className='servicesGalery'
                       style={
                         dark
                           ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
@@ -726,10 +876,10 @@ console.log(aboutData, "=>abotu data");
                             key={index}
                             type='text' 
                             name='change' 
-                            value={element.galery} 
+                            value={element.title} 
                             onChange={(e)=>{
                               const newServicesGalery = [...servicesGalery];
-                              newServicesGalery[index].galery = e.target.value;
+                              newServicesGalery[index].title = e.target.value;
                               setServicesGalery(newServicesGalery);
                               localStorage.setItem("ServicesGalery", JSON.stringify(newServicesGalery))
                             }}/>
@@ -737,17 +887,28 @@ console.log(aboutData, "=>abotu data");
                             key={index}
                             type='text' 
                             name='change' 
-                            value={element.text} 
+                            value={element.description} 
                             onChange={(e)=>{
                               const newServicesGalery = [...servicesGalery];
-                              newServicesGalery[index].text = e.target.value;
+                              newServicesGalery[index].description = e.target.value;
+                              setServicesGalery(newServicesGalery);
+                              localStorage.setItem("ServicesGalery", JSON.stringify(newServicesGalery))
+                            }}/>
+                            <input 
+                            key={index}
+                            type='text' 
+                            name='change' 
+                            value={element.icon} 
+                            onChange={(e)=>{
+                              const newServicesGalery = [...servicesGalery];
+                              newServicesGalery[index].icon = e.target.value;
                               setServicesGalery(newServicesGalery);
                               localStorage.setItem("ServicesGalery", JSON.stringify(newServicesGalery))
                             }}/>
                         </div>
                         
                       })}
-                      </div>
+                      </div> }
 
                       </>
                       
@@ -762,7 +923,7 @@ console.log(aboutData, "=>abotu data");
 
         {data === "feedback" && (
           <div className="feedback">
-            {feedback.length > 0 ? (
+            {feedback.size > 0 ? (
               feedback.map((element, index) => (
                 <div className="card" key={index}>
                   <h1>{element.name}</h1>

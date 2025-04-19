@@ -117,8 +117,7 @@ tbody td {
 .homeBanner, 
 .homeAbout, 
 .homeServices,
-.aboutAbout,
-.aboutBanner,
+.aboutData,
 .servicesBanner ,
 .servicesGalery {
     display: flex;
@@ -136,8 +135,7 @@ tbody td {
   .homeBanner input, 
   .homeAbout input, 
   .homeServices input,
-  .aboutAbout input,
-  .aboutBanner input,
+  .aboutData input,
   .servicesBanner input,
   .servicesGalery input{
     width: 100%;
@@ -150,8 +148,7 @@ tbody td {
   .homeBanner input:focus, 
   .homeAbout input:focus, 
   .homeServices input:focus ,
-  .aboutAbout input:focus,
-  .aboutBanner input:focus,
+  .aboutData input:focus,
   .servicesBanner input:focus,
   .servicesGalery input:focus{
     border-color: #007bff;

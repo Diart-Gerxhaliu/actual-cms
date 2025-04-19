@@ -60,7 +60,7 @@ const ServiceTemplate = () => {
           {servicesData &&
             servicesData.map((item, index) => (
               <div className="service-card" key={index}>
-                <img src={item.image} alt={item.title} />
+                <img src={item.icon} alt={item.title} />
                 <h2>{item.title}</h2>
                 <p>{item.description}</p>
               </div>
