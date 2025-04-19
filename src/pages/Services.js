@@ -5,7 +5,7 @@ import './services.css'
 function Services() {
   return (
     <div className='services'>
-      <ServicesTemplate/>
+     <ServicesTemplate/>
     </div>
   )
 }

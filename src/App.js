@@ -10,6 +10,7 @@ import Services from './pages/Services';
 import Admin from './pages/Admin';
 import Login from './components/organisms/Login';
 import Dashboard from './pages/Dashboard';
+import Blog from './pages/Blog';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function MainContent() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/login" element={<Login />} />
         <Route path='/admin/dashboard' element={<Dashboard/>}/>
