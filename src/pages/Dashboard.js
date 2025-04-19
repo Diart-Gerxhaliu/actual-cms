@@ -1,4 +1,5 @@
 import React, {useEffect, useState } from "react";
+import HeaderCustomizer from "../components/organisms/HeaderCustomizer";
 import "./Dashboard.css";
 
 function Dashboard() {
@@ -142,6 +143,17 @@ console.log(aboutData, "=>abotu data");
       <div className="main">
         <h2 className="mainTitle">{selectedMenu}</h2>
 
+        {data === "header" && (
+          <div className="customization-section">
+            <h1>Header Customization</h1>
+            <p>
+              Choose from 9 different header styles to customize your website's
+              appearance
+            </p>
+            <HeaderCustomizer />
+          </div>
+        )}
+
         {data === "dash" && (
           <div>
             <div >
@@ -229,6 +241,14 @@ console.log(aboutData, "=>abotu data");
                     type='button'
                     onClick={() => setPage("Home")}
                   >Home</button>
+                  <button
+                    onClick={() => {
+                      setSelectedMenu("Header Style");
+                      setData("header");
+                    }}
+                  >
+                    Header Style
+                  </button>
                   <button 
                     type='button'
                     onClick={() => setPage("About")}
@@ -383,7 +403,7 @@ console.log(aboutData, "=>abotu data");
                 {page === "Home" && (
                   <div>
                     {homeBanner &&
-                      homeBanner.map((gal, index) => (
+                      homeBanner.map((element, index) => (
                         <div className="homeBanner" key={index}
                         style={
                           dark
@@ -395,7 +415,7 @@ console.log(aboutData, "=>abotu data");
                           <input 
                             type="text"
                             name="change"
-                            value={gal.imageBack}
+                            value={element.imageBack}
                             onChange={(e) => {
                               const newBanner = [...homeBanner];
                               newBanner[index].imageBack = e.target.value;
@@ -407,7 +427,7 @@ console.log(aboutData, "=>abotu data");
                           <input 
                             type="text"
                             name="change"
-                            value={gal.bannerHead}
+                            value={element.bannerHead}
                             onChange={(e) => {
                               const newBanner = [...homeBanner];
                               newBanner[index].bannerHead = e.target.value;
@@ -419,7 +439,7 @@ console.log(aboutData, "=>abotu data");
                           <input 
                             type="text"
                             name="change"
-                            value={gal.bannerDesc}
+                            value={element.bannerDesc}
                             onChange={(e) => {
                               const newBanner = [...homeBanner];
                               newBanner[index].bannerDesc = e.target.value;
@@ -431,7 +451,7 @@ console.log(aboutData, "=>abotu data");
                           <input 
                             type="text"
                             name="change"
-                            value={gal.bannerButton1}
+                            value={element.bannerButton1}
                             onChange={(e) => {
                               const newBanner = [...homeBanner];
                               newBanner[index].bannerButton1 = e.target.value;
@@ -443,7 +463,7 @@ console.log(aboutData, "=>abotu data");
                           <input 
                             type="text"
                             name="change"
-                            value={gal.bannerButton2}
+                            value={element.bannerButton2}
                             onChange={(e) => {
                               const newBanner = [...homeBanner];
                               newBanner[index].bannerButton2 = e.target.value;
@@ -455,7 +475,7 @@ console.log(aboutData, "=>abotu data");
                       ))}
               
                     {homeAbout &&
-                      homeAbout.map((gal, index) => (
+                      homeAbout.map((element, index) => (
                         <div className="homeAbout" key={index}
                         style={
                           dark
@@ -466,7 +486,7 @@ console.log(aboutData, "=>abotu data");
                           <input 
                             type="text"
                             name="change"
-                            value={gal.aboutImage}
+                            value={element.aboutImage}
                             onChange={(e) => {
                               const newAbout = [...homeAbout];
                               newAbout[index].aboutImage = e.target.value;
@@ -477,7 +497,7 @@ console.log(aboutData, "=>abotu data");
                           <input 
                             type="text"
                             name="change"
-                            value={gal.aboutHead}
+                            value={element.aboutHead}
                             onChange={(e) => {
                               const newAbout = [...homeAbout];
                               newAbout[index].aboutHead = e.target.value;
@@ -488,7 +508,7 @@ console.log(aboutData, "=>abotu data");
                           <input 
                             type="text"
                             name="change"
-                            value={gal.aboutDesc}
+                            value={element.aboutDesc}
                             onChange={(e) => {
                               const newAbout = [...homeAbout];
                               newAbout[index].aboutDesc = e.target.value;
@@ -497,7 +517,7 @@ console.log(aboutData, "=>abotu data");
                             }}
                           />
                           
-                          {gal.aboutList.map((serie, i) => (
+                          {element.aboutList.map((serie, i) => (
                             <div className='aboutList' key={i}>
                               <input 
                                 type="text"
@@ -527,7 +547,7 @@ console.log(aboutData, "=>abotu data");
                           <input 
                             type="text"
                             name="change"
-                            value={gal.buttonDesc}
+                            value={element.buttonDesc}
                             onChange={(e) => {
                               const newAbout = [...homeAbout];
                               newAbout[index].buttonDesc = e.target.value;
@@ -539,7 +559,7 @@ console.log(aboutData, "=>abotu data");
                       ))}
               
                     {homeServices &&
-                      homeServices.map((gal, index) => (
+                      homeServices.map((element, index) => (
                         <div className='homeServices' key={index}
                         style={
                           dark
@@ -550,7 +570,7 @@ console.log(aboutData, "=>abotu data");
                           <input 
                             type='text' 
                             name='change' 
-                            value={gal.head} 
+                            value={element.head} 
                             onChange={(e) => {
                               const newServices = [...homeServices];
                               newServices[index].head = e.target.value;
@@ -559,7 +579,7 @@ console.log(aboutData, "=>abotu data");
                             }}
                           />
                           
-                          {gal.card.map((serie, i) => (
+                          {element.card.map((serie, i) => (
                             <div key={i}>
                               <input 
                                 type='text' 
@@ -593,14 +613,14 @@ console.log(aboutData, "=>abotu data");
                   <div>
                     <h1>About Page</h1>
                     {
-                      aboutData.map((gal,index)=>{
+                      aboutData.map((element,index)=>{
                         return <div className='aboutData' key={index}
                         style={
                           dark
                             ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
                             : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
                         }>
-                          {gal.banner.map((serie,i)=>{
+                          {element.banner.map((serie,i)=>{
                             return <div className='banner'>
                               <h2>Banner</h2>
                               <input 
@@ -648,7 +668,7 @@ console.log(aboutData, "=>abotu data");
                   <>
                     {servicesBanner && (
                         <>
-                        {servicesBanner.map((gal,index)=>{
+                        {servicesBanner.map((element,index)=>{
                           return<div className="servicesBanner"
                           style={
                             dark
@@ -660,7 +680,7 @@ console.log(aboutData, "=>abotu data");
                             key={index}
                             type='text' 
                             name='change' 
-                            value={gal.imageBack} 
+                            value={element.imageBack} 
                             onChange={(e)=>{
                               const newServicesBanner = [...servicesBanner];
                               newServicesBanner[index].imageBack = e.target.value;
@@ -671,7 +691,7 @@ console.log(aboutData, "=>abotu data");
                             key={index}
                             type='text' 
                             name='change' 
-                            value={gal.bannerHead} 
+                            value={element.bannerHead} 
                             onChange={(e)=>{
                               const newServicesBanner = [...servicesBanner];
                               newServicesBanner[index].bannerHead = e.target.value;
@@ -682,7 +702,7 @@ console.log(aboutData, "=>abotu data");
                             key={index}
                             type='text' 
                             name='change' 
-                            value={gal.bannerButton1} 
+                            value={element.bannerButton1} 
                             onChange={(e)=>{
                               const newServicesBanner = [...servicesBanner];
                               newServicesBanner[index].bannerButton1 = e.target.value;
@@ -699,13 +719,13 @@ console.log(aboutData, "=>abotu data");
                           : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
                       }>
                       <h1>Galery</h1>
-                      {servicesGalery.map((gal,index)=>{
+                      {servicesGalery.map((element,index)=>{
                         return <div>
                           <input 
                             key={index}
                             type='text' 
                             name='change' 
-                            value={gal.galery} 
+                            value={element.galery} 
                             onChange={(e)=>{
                               const newServicesGalery = [...servicesGalery];
                               newServicesGalery[index].galery = e.target.value;
@@ -716,7 +736,7 @@ console.log(aboutData, "=>abotu data");
                             key={index}
                             type='text' 
                             name='change' 
-                            value={gal.text} 
+                            value={element.text} 
                             onChange={(e)=>{
                               const newServicesGalery = [...servicesGalery];
                               newServicesGalery[index].text = e.target.value;
@@ -742,15 +762,15 @@ console.log(aboutData, "=>abotu data");
         {data === "feedback" && (
           <div className="feedback">
             {feedback.length > 0 ? (
-              feedback.map((gal, index) => (
+              feedback.map((element, index) => (
                 <div className="card" key={index}>
-                  <h1>{gal.name}</h1>
-                    <h2>{gal.subject}</h2>
+                  <h1>{element.name}</h1>
+                    <h2>{element.subject}</h2>
                   <div className="row">
-                    <h2>{gal.phone}</h2>
-                    <h2>{gal.email}</h2>
+                    <h2>{element.phone}</h2>
+                    <h2>{element.email}</h2>
                   </div>
-                  <p>{gal.message}</p>
+                  <p>{element.message}</p>
                 </div>
               ))
             ) : (
@@ -763,11 +783,11 @@ console.log(aboutData, "=>abotu data");
         {data === "posts" && (
           <div className='posts'>
           <div className='postsGalery'>
-            {servicesGalery.map((gal,index)=>{
+            {servicesGalery.map((element,index)=>{
               return <div className="card" key={index}>
                 
-                    <img src={gal.galery} alt='' />
-                    <h1>{gal.text}</h1>
+                    <img src={element.galery} alt='' />
+                    <h1>{element.text}</h1>
                     <button type='button'
                     onClick={()=>{
                       setServicesGalery(servicesGalery.filter((_, i) => i !== index));

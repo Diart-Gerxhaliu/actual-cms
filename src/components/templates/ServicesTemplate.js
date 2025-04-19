@@ -25,13 +25,13 @@ const ServiceTemplate = () => {
 
   return (
     <div className="services-container">
-      <Banner
+      {/* <Banner
         backImage={gal.imageBack}
         h1={gal.bannerHead}
         p={gal.bannerDesc}
         button1={gal.bannerButton1}
         button2={""}
-      />
+      /> */}
 
       <div className="content-section">
         <div className="image-container">
