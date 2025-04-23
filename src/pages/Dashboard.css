@@ -117,7 +117,8 @@ tbody td {
 .homeServices,
 .aboutData,
 .servicesBanner,
-.servicesGalery {
+.servicesGalery,
+.general {
   display: flex;
   flex-direction: column;
   gap: 10px; /* Adds spacing between input fields */

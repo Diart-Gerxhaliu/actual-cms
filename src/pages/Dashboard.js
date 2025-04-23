@@ -44,7 +44,7 @@ function Dashboard() {
   );
   //*Menu
   let [menuStyle, setMenuStyle] = useState(
-    JSON.parse(localStorage.getItem("MenuStyle")) || []
+    JSON.parse(localStorage.getItem("MenuStyleDinamic")) || []
   );
   //*Banner
   let [bannerStyle, setBannerStyle] = useState(
