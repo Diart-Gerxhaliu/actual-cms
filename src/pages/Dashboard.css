@@ -136,7 +136,8 @@ tbody td {
 .homeServices input,
   .aboutData input,
   .servicesBanner input,
-  .servicesGalery input{
+  .servicesGalery input,
+  .general input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -149,7 +150,8 @@ tbody td {
   .homeServices input:focus ,
   .aboutData input:focus,
   .servicesBanner input:focus,
-  .servicesGalery input:focus{
+  .servicesGalery input:focus,
+  .general input:focus {
     border-color: #007bff;
     outline: none;
   }
@@ -159,7 +161,7 @@ tbody td {
 .aboutData,
 .aboutBanner,
 .servicesBanner,
-.servicesGalery {
+.servicesGalery{
   display: flex;
   flex-direction: column;
   gap: 10px; /* Adds spacing between input fields */

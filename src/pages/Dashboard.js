@@ -363,7 +363,12 @@ function Dashboard() {
               </button>
             </div>
             {style === "General" && (
-              <div className="general">
+              <div className="general"
+              style={
+                dark
+                  ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+                  : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+              }>
                 <div className="bodyGeneral stylesSpan">
                   <h1>Body</h1>
                   <div>
@@ -1099,7 +1104,12 @@ function Dashboard() {
         {data === "posts" && (
           <div className="blog-grid row">
           {blogPosts.map((post, index) => (
-            <div className="card" key={post.id}>
+            <div className="card" key={post.id}
+            style={
+              dark
+                ? { backgroundColor: "#333", color: "white" ,borderColor:"black"}
+                : { backgroundColor: "#f4f4f4", color: "black", borderColor:"white"}
+            }>
               {!post.isConfigOpen ? (
                 <>
                   <img src={post.image} alt={post.title} />
@@ -1192,6 +1202,23 @@ function Dashboard() {
                 
         </div>
         )}
+        <button className='addpost'
+        onClick={() => {
+          const newPost = {
+            id: blogPosts.length + 1,
+            title: "New Post",
+            description: "Description",
+            image: "https://img.freepik.com/free-photo/office-desk-with-laptop_23-2148821886.jpg",
+            date: "2023-10-01",
+            category: "Category",
+            tags: [],
+            isConfigOpen: false,
+          };
+          setBlogPosts([...blogPosts, newPost]);
+          localStorage.setItem("blogPosts", JSON.stringify([...blogPosts, newPost]));
+        }}>
+          Add Post
+        </button>
       </div>
     </div>
   );
