@@ -1198,10 +1198,6 @@ function Dashboard() {
                 
             </div>
           ))}
-
-                
-        </div>
-        )}
         <button className='addpost'
         onClick={() => {
           const newPost = {
@@ -1219,6 +1215,11 @@ function Dashboard() {
         }}>
           Add Post
         </button>
+                
+        </div>
+        
+        )}
+        
       </div>
     </div>
   );
