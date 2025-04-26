@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "../atoms/Image";
 import Navcomps from "../../json/Menu.json";
 import Logo from "../../json/Logo.json";
@@ -19,7 +19,7 @@ function Menu() {
     
 
 
-  const menuStyles = [
+  const menuStyles = React.useMemo(() => [
     {
       name: "Minimal Light",
       properties: {
@@ -120,7 +120,7 @@ function Menu() {
         height: "70px",
       },
     },
-  ];
+  ], []);
 
   useEffect(() => {
     const style = {
@@ -158,7 +158,7 @@ function Menu() {
 
 
 
-  }, [    menuStyleLS, menuStyle, menuStyles]);
+  }, []);
 
   
   return (
