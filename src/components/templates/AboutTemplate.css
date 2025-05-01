@@ -15,7 +15,6 @@ body {
   margin: 0;
 }
 
-/* Responsive Banner */
 .about-banner-image {
   position: relative;
   width: 100%;
@@ -35,6 +34,15 @@ body {
 
 .about-banner-image:hover img {
   transform: scale(1.1);
+}
+.baba {
+  list-style: none;
+  margin: 0;
+  padding: 0px 30px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .banner-text {
@@ -150,9 +158,21 @@ body {
   .about-banner-image {
     height: 50vh;
   }
+  .banner-text h1 p {
+    font-size: 12px;
+  }
 
   .about-section {
     padding: 8vw;
+  }
+  .baba {
+    list-style: none;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }
 
@@ -160,8 +180,20 @@ body {
   .about-page {
     margin-top: 30%;
   }
+  .banner-text h1 p {
+    font-size: 12px;
+  }
   .about-banner-image {
     height: 40vh;
+  }
+  .baba {
+    list-style: none;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
   .banner-text {
@@ -176,6 +208,8 @@ body {
 
   .about-section img {
     width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
   }
 
   .about-cta h2 {
@@ -200,11 +234,35 @@ body {
   .about-banner-image {
     height: 35vh;
   }
+  .banner-text h1 {
+    font-size: 22px;
+  }
 
+  .baba {
+    list-style: none;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
   .banner-text {
-    font-size: 1.5rem;
-    padding: 8px 18px;
-    bottom: 10%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 0 auto;
+    width: 90%;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 28px;
+    backdrop-filter: blur(5px);
+    max-width: 80%;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
   }
 
   .about-section {

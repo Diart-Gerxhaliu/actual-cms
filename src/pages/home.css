@@ -245,6 +245,12 @@
   .button {
     margin-left: -20%;
   }
+  .next {
+    width: 10%;
+  }
+  .prev {
+    width: 10%;
+  }
 }
 
 @media (max-width: 768px) {
